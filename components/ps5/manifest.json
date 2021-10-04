@@ -1,0 +1,9 @@
+{
+  "domain": "ps5",
+  "name": "Sony PlayStation 5",
+  "config_flow": true,
+  "documentation": "https://www.home-assistant.io/integrations/ps4",
+  "requirements": ["psremoteplay==1.2.0"],
+  "codeowners": ["@vitor_baccin"],
+  "iot_class": "local_polling"
+}
