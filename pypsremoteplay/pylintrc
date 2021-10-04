@@ -1,0 +1,22 @@
+[MESSAGES CONTROL]
+
+disable=wildcard-import,unused-import,too-many-public-methods,too-many-locals,too-many-arguments,too-many-instance-attributes,too-many-nested-blocks
+
+[REPORTS]
+
+# Tells whether to display a full report or only the messages
+reports=no
+
+[FORMAT]
+
+# Maximum number of characters on a single line.
+# Set to black line length
+max-line-length=88
+
+[TYPECHECK]
+
+# List of module names for which member attributes should not be checked
+# (useful for modules/projects where namespaces are manipulated during runtime
+# and thus extisting member attributes cannot be deduced by static analysis
+ignored-modules=pytest
+

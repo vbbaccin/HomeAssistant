@@ -1,0 +1,47 @@
+language: python
+jobs:
+  include:
+    - os: linux
+      python: 3.5
+      env:
+        - BADGE=linux
+    - os: linux
+      python: 3.6
+      env:
+        - BADGE=linux
+    - os: linux
+      python: 3.7.6
+      env:
+        - BADGE=linux
+    - os: linux
+      python: 3.8
+      env:
+        - BADGE=linux
+    - os: linux
+      python: 3.9
+      env:
+        - BADGE=linux        
+    - os: windows
+      language: shell
+      before_install:
+        - choco install python --version 3.9.0
+        - python -m pip install --upgrade pip
+      env: 
+        - PATH=/c/Python39:/c/Python39/Scripts:$PATH
+        - BADGE=windows
+  allow_failures:
+    - os: windows
+  fast_finish: true
+
+install:
+  - pip install -r requirements.txt
+  - python setup.py install
+script:
+  - flake8 --exclude __init__.py --max-line-length=82 psremoteplay
+  - pylint psremoteplay
+branches:
+  only:
+  - master
+  - dev
+after_success:
+  - codecov
